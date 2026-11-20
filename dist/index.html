@@ -1,0 +1,117 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><title>Inform II MR 培训</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap">
+<style>
+/* Launcher for the web MR training (Meta Quest browser): allow the camera, enter MR. The training itself runs on the MR panel. */
+:root {
+  --bg: #f2f6f6; --surface: #ffffff; --sunk: #e8efef; --ink: #13252a; --muted: #5a6f74; --line: #d6e1e2;
+  --teal: #0e7c87; --teal-ink: #ffffff; --teal-soft: #dcefef; --ok: #1f7f55; --bad: #b33e2c;
+  --shadow: 0 1px 2px rgba(19, 37, 42, .06), 0 6px 20px rgba(19, 37, 42, .06);
+  --f-sans: "IBM Plex Sans", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0c1416; --surface: #142024; --sunk: #0f1a1d; --ink: #e6eff1; --muted: #93a8ad; --line: #24363b;
+  --teal: #3cb1bb; --teal-ink: #062226; --teal-soft: #15343a; --ok: #43d18f; --bad: #ff8a75; --shadow: none; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0c1416; --surface: #142024; --sunk: #0f1a1d; --ink: #e6eff1; --muted: #93a8ad; --line: #24363b;
+  --teal: #3cb1bb; --teal-ink: #062226; --teal-soft: #15343a; --ok: #43d18f; --bad: #ff8a75; --shadow: none; color-scheme: dark }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 var(--f-sans); }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 28px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 16px; }
+header { display: flex; align-items: center; gap: 14px; }
+.mark { font: 600 18px var(--f-mono); background: var(--teal); color: var(--teal-ink); border-radius: 10px; padding: 8px 11px; letter-spacing: .04em; }
+header .t { flex: 1; min-width: 0; }
+h1 { font-size: 22px; line-height: 1.25; margin: 0; text-wrap: balance; }
+header p { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
+.seg button { border: 0; background: transparent; color: var(--muted); font: 600 13px var(--f-sans); padding: 7px 11px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--teal); color: var(--teal-ink); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); padding: 18px; }
+ol.go { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+ol.go li { display: grid; grid-template-columns: 34px 1fr auto; gap: 12px; align-items: center; }
+ol.go .n { width: 34px; height: 34px; border-radius: 50%; background: var(--teal-soft); color: var(--teal); font: 600 16px var(--f-mono); display: grid; place-items: center; }
+ol.go b { display: block; font-size: 16px; }
+ol.go li > div { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.st { font: 500 13px var(--f-mono); color: var(--muted); }
+.st.ok { color: var(--ok); } .st.bad { color: var(--bad); }
+video#camPreview { grid-column: 2 / -1; width: 100%; max-height: 220px; object-fit: cover; border-radius: 10px; background: #000; }
+.btn { border: 1px solid var(--line); background: var(--sunk); color: var(--ink); font: 600 15px var(--f-sans); border-radius: 10px; padding: 11px 18px; cursor: pointer; white-space: nowrap; }
+.btn.primary { background: var(--teal); border-color: transparent; color: var(--teal-ink); font-size: 17px; padding: 13px 24px; }
+.btn:disabled { opacity: .45; cursor: default; }
+.note { color: var(--muted); font-size: 14px; margin: 14px 0 0; max-width: 64ch; }
+.how { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.how li { background: var(--sunk); border-radius: 10px; padding: 10px 12px; font-size: 14px; }
+.how li span { display: block; font: 600 12px var(--f-mono); color: var(--teal); letter-spacing: .05em; margin-bottom: 2px; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+details.card summary { cursor: pointer; font-weight: 600; }
+.set { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+.set label { display: flex; align-items: center; gap: 10px; font-size: 14px; flex-wrap: wrap; }
+.set input[type=range] { flex: 1 1 160px; accent-color: var(--teal); }
+.set input[type=checkbox] { accent-color: var(--teal); width: 18px; height: 18px; }
+.set .v { font: 500 13px var(--f-mono); min-width: 3em; }
+.resume { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+.resume .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; background: var(--sunk); border-radius: 10px; padding: 10px 12px; }
+.resume .row span { flex: 1 1 260px; min-width: 0; font-size: 14px; }
+.btn.danger { color: var(--bad); border-color: var(--bad); }
+.inmr { display: none; }
+body.in-mr .inmr { display: block; }
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 60; background: var(--ink); color: var(--bg); padding: 9px 16px; border-radius: 10px; font-size: 14px; max-width: calc(100% - 32px); }
+@media (max-width: 520px) { ol.go li { grid-template-columns: 34px 1fr; } ol.go li > .btn { grid-column: 2; justify-self: start; } }
+</style>
+
+<main class="wrap">
+  <header>
+    <span class="mark">MR</span>
+    <div class="t"><h1 data-t="lnTitle">ACCU-CHEK Inform II · MR 培训</h1><p data-t="lnSub">QC 质控测试与患者血糖测试 · Meta Quest 3 / 3S</p></div>
+    <span class="seg"><button id="lzh">中</button><button id="len">EN</button></span>
+  </header>
+
+  <section class="card" aria-labelledby="goH">
+    <h2 id="goH" class="sr" hidden>Start</h2>
+    <ol class="go">
+      <li><span class="n">1</span><div><b data-t="prepStep1">允许使用头显摄像头</b><span class="st" id="camState"></span></div><button class="btn" id="prepCam" data-t="prepCamBtn">允许摄像头</button>
+        <video id="camPreview" playsinline muted hidden></video></li>
+      <li><span class="n">2</span><div><b data-t="prepStep2">进入 MR</b><span class="st">WebXR · <span id="xrState">…</span></span></div><button class="btn primary" id="prepEnter" data-t="mrStart">进入 MR</button></li>
+    </ol>
+    <div class="resume" id="resume" hidden></div>
+    <p class="note inmr" data-t="lnInMr">MR 进行中。退出 MR 后回到这里，进度会保留。</p>
+    <p class="note" data-t="lnNote">进入 MR 后先到开始页面选择测试；每一轮结束都会自动回到开始页面。</p>
+  </section>
+
+  <section class="card">
+    <ul class="how">
+      <li><span>01</span><b data-t="lnHow1">每段先看示范视频</b></li>
+      <li><span>02</span><b data-t="lnHow2">照着设备做，屏幕自动识别</b></li>
+      <li><span>03</span><b data-t="lnHow3">识别通过后点绿色卡片确认</b></li>
+      <li><span>04</span><b data-t="lnHow4">一轮结束回到开始页面</b></li>
+    </ul>
+    <div class="row" style="margin-top:12px"><span class="st" data-t="lnModel">识别模型</span><span class="st" id="modelState"></span></div>
+  </section>
+
+  <details class="card">
+    <summary data-t="lnSettings">设置</summary>
+    <div class="set">
+      <label><span data-t="setTh">通过所需置信度</span><input type="range" id="thIn" min="50" max="95" step="5"><span class="v" id="thVal"></span></label>
+      <label><span data-t="setHold">连续帧数</span><input type="range" id="holdIn" min="1" max="6" step="1"><span class="v" id="holdVal"></span></label>
+      <label><input type="checkbox" id="confirmIn"> <span data-t="setConfirm">屏幕识别通过后，确认再进入下一步</span></label>
+      <label><input type="checkbox" id="autoIn"> <span data-t="setAuto">本步全部完成后自动进入下一步</span></label>
+    </div>
+  </details>
+</main>
+<div class="toast" id="toast" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>window.QC_MODELS = "onnx";</script>
+<script src="course-qc.js?v=20261111-mr"></script>
+<script src="course-patient.js?v=20261111-mr"></script>
+<script src="videos.js?v=20261111-mr"></script>
+<script src="sim-screens.js?v=20261111-mr"></script>
+<script src="manual-screens.js?v=20261111-mr"></script>
+<script src="app.js?v=20261111-mr"></script>
+<script src="fx3d.js?v=20261111-mr"></script>
+<script src="xr.js?v=20261111-mr"></script>
+
+</body></html>
