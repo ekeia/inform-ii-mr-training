@@ -15,7 +15,7 @@
 
 本项目已于 **2026 年 11 月 20 日**正式交接给医院并完成。医院与新加坡国立大学（NUS）后续开展的版本属于后续工作，不属于本项目范围。
 
-**原型制作团队：** 李远帆、ChengYi、沈忻源、张钧茜
+**项目制作团队：** 李远帆、ChengYi、沈忻源、张钧茜
 
 ### 功能
 
@@ -64,13 +64,13 @@ dist/
 
 交接材料记录的分类模型离线评估为：来自**单台仪器、手机拍摄视频**的留出帧上 top-1 准确率 98.9%。这不是头显摄像头、临床环境或临床结果上的测量，也不能代表不同仪器或病区照明条件下的表现。真实头显摄像头识别率、手部追踪可靠性和第二台仪器表现仍需验证。
 
-识别模型判断的是仪器屏幕类别，不读取患者身份内容或血糖数值，也不替代学员或护士的身份核验、临床判断和操作核对。训练进度只保存在当前页面会话，不会上传为培训档案；此原型没有业务后端、用户登录或 LMS 集成。浏览器仍需下载模型、视频和运行资源，部分依赖来自第三方 CDN。
+识别模型判断的是仪器屏幕类别，不读取患者身份内容或血糖数值，也不替代学员或护士的身份核验、临床判断和操作核对。训练进度只保存在当前页面会话，不会上传为培训档案；本项目当前版本没有业务后端、用户登录或 LMS 集成。浏览器仍需下载模型、视频和运行资源，部分依赖来自第三方 CDN。
 
-**仅用于培训原型评估，不用于患者照护、诊断、治疗或临床决策。** 请以医院批准的正式流程、仪器说明书和现场指导为准。
+**本项目用于培训流程演示与评估，不用于患者照护、诊断、治疗或临床决策。** 请以医院批准的正式流程、仪器说明书和现场指导为准。
 
 ### 知识产权与许可
 
-本仓库尚未声明开源许可证。公开可见不等于授予复制、修改、再发布或商业使用权限；后续维护者应先确认合作方、作者和第三方素材的授权，再添加明确许可证。项目涉及 ACCU-CHEK / Roche 商标及仪器相关内容，商标归其各自权利人所有；该原型不表示 Roche 背书。交接材料指出模型使用了 Ultralytics YOLO 训练，发布或提供服务前应复核相关模型、代码、视频、截图、手册素材和运行库的许可与分发条件。
+本仓库尚未声明开源许可证。公开可见不等于授予复制、修改、再发布或商业使用权限；后续维护者应先确认合作方、作者和第三方素材的授权，再添加明确许可证。项目涉及 ACCU-CHEK / Roche 商标及仪器相关内容，商标归其各自权利人所有；本项目不表示 Roche 背书。交接材料指出模型使用了 Ultralytics YOLO 训练，发布或提供服务前应复核相关模型、代码、视频、截图、手册素材和运行库的许可与分发条件。
 
 ---
 
@@ -82,7 +82,7 @@ This mixed reality (MR) training system was developed in collaboration with **Al
 
 This project was completed and formally handed over to the hospital on **20 November 2026**. Any subsequent versions developed by Alexandra Hospital and the National University of Singapore (NUS) are separate follow-on work and are outside the scope of this project.
 
-**Prototype team:** Li Yuanfan (李远帆), ChengYi, Shen Xinyuan (沈忻源), Zhang Junqian (张钧茜)
+**Project team:** Li Yuanfan (李远帆), ChengYi, Shen Xinyuan (沈忻源), Zhang Junqian (张钧茜)
 
 ### Features
 
@@ -131,13 +131,14 @@ Course steps and copy live in `course-qc.js` and `course-patient.js`. The class 
 
 The handoff reports **98.9% top-1 classifier accuracy** on held-out frames from phone-recorded videos of **one meter**. This is an offline frame evaluation, not a measurement from a headset camera, clinical environment, or clinical outcome. Performance with a real headset camera, hand tracking, another meter unit, and ward lighting still needs evaluation.
 
-The model classifies meter screens; it does not read patient identity or glucose values, and it does not replace identity checks, clinical judgment, or staff review. Training progress is kept only in the current page session; the prototype has no application backend, user accounts, or LMS integration. The browser still downloads models, videos, and runtime assets, and some dependencies are loaded from third-party CDNs.
+The model classifies meter screens; it does not read patient identity or glucose values, and it does not replace identity checks, clinical judgment, or staff review. Training progress is kept only in the current page session; this project has no application backend, user accounts, or LMS integration. The browser still downloads models, videos, and runtime assets, and some dependencies are loaded from third-party CDNs.
 
-**For prototype training evaluation only. Do not use for patient care, diagnosis, treatment, or clinical decision-making.** Follow the hospital-approved procedure, device instructions, and on-site supervision.
+**This project is for training workflow demonstration and evaluation only. Do not use for patient care, diagnosis, treatment, or clinical decision-making.** Follow the hospital-approved procedure, device instructions, and on-site supervision.
 
 ### Intellectual property and licensing
 
-No open-source license has been declared for this repository. Public visibility does not grant permission to copy, modify, redistribute, or use the materials commercially. Future maintainers should confirm rights with the project partners, authors, and third-party rights holders before adding a license. ACCU-CHEK / Roche marks and device-related materials belong to their respective owners; this prototype is not endorsed by Roche. The handoff notes that Ultralytics YOLO was used to train the models. Review the licensing and redistribution terms for the models, code, videos, screenshots, manual excerpts, and runtime libraries before redistribution or service deployment.
+No open-source license has been declared for this repository. Public visibility does not grant permission to copy, modify, redistribute, or use the materials commercially. Future maintainers should confirm rights with the project partners, authors, and third-party rights holders before adding a license. ACCU-CHEK / Roche marks and device-related materials belong to their respective owners; this project is not endorsed by Roche. The handoff notes that Ultralytics YOLO was used to train the models. Review the licensing and redistribution terms for the models, code, videos, screenshots, manual excerpts, and runtime libraries before redistribution or service deployment.
+
 
 
 
